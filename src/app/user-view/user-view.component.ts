@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { UsersService } from '../users.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-user-view',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserViewComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+
+  constructor(
+    private route: ActivatedRoute,
+    private usersService: UsersService
+  ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.getUser(id);
   }
 
+  // May be problematic JUNKJUNKJUNK123
+  getUser(id): void {
+   // console.log('in getUser');
+   // console.log(id);
+
+    this.usersService.getUser(id).subscribe(
+      (response:any) => {
+     //   console.log(response);
+        this.user = response.user;
+      }
+    );
+  }
 }
