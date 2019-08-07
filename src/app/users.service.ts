@@ -12,6 +12,9 @@ const httpOptions = {
 })
 export class UsersService {
   private url: string = 'http://localhost:3001/api/users';
+
+  private authUrl: string = 'http://localhost:3001/api/auth';
+
   constructor(private http: HttpClient) { }
   getUsers(): Observable<User[]> {
    // console.log('In USERSService');
@@ -32,4 +35,10 @@ export class UsersService {
   deleteUser (id: string): Observable<User> {
     return this.http.delete<User>(`${this.url}/${id}`);
   }
+
+  login(user: User): Observable<User> {
+    return this.http.post<User>(`${this.authUrl}/login`, user, httpOptions);
+  }
+
+
 } // end class UserServices
