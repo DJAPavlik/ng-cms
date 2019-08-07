@@ -1,1 +1,36 @@
-<p>article-edit works!</p>
+<h1 *ngIf="article">Edit {{article.title}} {{article.description}}</h1>
+
+<form *ngIf="article" (ngSubmit)="onSubmit()" #editArticle="ngForm">
+  
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <input [(ngModel)]="article._id" type="hidden" name="_id" id="_id">
+
+  <div>
+    <label for="title">Title</label>
+    <input [(ngModel)]="article.title" type="text" name="title" id="title">
+    <div *ngIf="errors.title">{{errors.title.message}}</div>
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <input [(ngModel)]="article.description" type="text" name="description" id="description">
+    <div *ngIf="errors.description">{{errors.description.message}}</div>
+  </div>
+
+  <div>
+    <label for="key_words">First Name</label>
+    <input [(ngModel)]="article.key_words" type="text" name="key_words" id="key_words">
+    <div *ngIf="errors.key_words">{{errors.key_words.message}}</div>
+  </div>
+
+  <div>
+    <label for="body">Last Name</label>
+    <input [(ngModel)]="article.body" type="text" name="body" id="body">
+    <div *ngIf="errors.body">{{errors.body.message}}</div>
+  </div>
+  
+  <button type="submit">Submit</button>
+
+</form>
+
