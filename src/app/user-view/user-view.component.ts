@@ -48,4 +48,4 @@ deleteUser(id: string): void {
   }
 } // end deleteUser(id: ...)
 
-}
+}  // end class UserViewComponent definition

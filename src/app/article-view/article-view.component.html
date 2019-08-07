@@ -1,1 +1,7 @@
-<p>article-view works!</p>
+<div *ngIf="article">
+    <h1>{{article.title}} {{article.description}}</h1>
+    <div><strong>Keywords:</strong> {{article.keywords}}</div>
+    <div><strong>Body:</strong> {{article.body}}</div>
+    <button [routerLink]="['/articles/edit/', article._id]">Edit</button>
+    <button (click)="deleteArticle(article._id)">Delete</button>
+</div>
