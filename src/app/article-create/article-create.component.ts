@@ -35,7 +35,7 @@ export class ArticleCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(' IN onSubmit Article');
+   // console.log(' IN onSubmit Article');
     this.articlesService.createArticle(this.article).subscribe(
       (response) => {
         this.response(response)

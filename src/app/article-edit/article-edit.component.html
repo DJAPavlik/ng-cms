@@ -19,13 +19,13 @@
   </div>
 
   <div>
-    <label for="key_words">First Name</label>
-    <input [(ngModel)]="article.key_words" type="text" name="key_words" id="key_words">
-    <div *ngIf="errors.key_words">{{errors.key_words.message}}</div>
+    <label for="keywords">Key Words</label>
+    <input [(ngModel)]="article.keywords" type="text" name="keywords" id="keywords">
+    <div *ngIf="errors.keywords">{{errors.keywords.message}}</div>
   </div>
 
   <div>
-    <label for="body">Last Name</label>
+    <label for="body">Body</label>
     <input [(ngModel)]="article.body" type="text" name="body" id="body">
     <div *ngIf="errors.body">{{errors.body.message}}</div>
   </div>

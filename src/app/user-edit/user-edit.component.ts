@@ -28,7 +28,11 @@ export class UserEditComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.getUser(id);
   }
-
+/**
+ * This method gets a single user from the user array
+ * 
+ * @param id - object id of the user to retrieve
+ */
   getUser(id): void {
     this.usersService.getUser(id).subscribe(
       (response:any) => {
@@ -44,6 +48,9 @@ export class UserEditComponent implements OnInit {
     }
 
     if(response.success===true){
+      // console.log('in user edit');
+      // console.log(response);
+      // console.log('---');
       this.router.navigate(['/users/view/', response.user._id]);
     }
   } // end response(response)

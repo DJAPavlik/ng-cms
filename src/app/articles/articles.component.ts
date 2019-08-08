@@ -29,7 +29,7 @@ export class ArticlesComponent implements OnInit {
     this.articlesService.getArticles().subscribe(
       (response:any) => {
         this.articles = response.articles;
-        console.log(this.articles);
+       // console.log(this.articles);
       }
     );
   }

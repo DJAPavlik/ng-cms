@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.user).subscribe(
       (response:any)=>{
-        console.log(response);
+       // console.log(response);
 
         if(response.success == false){
           this.error=true;

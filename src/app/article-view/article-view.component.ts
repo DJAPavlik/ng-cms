@@ -19,7 +19,7 @@ export class  ArticleViewComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private articlesService:  ArticlesService
-  ) { }
+  ) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -28,13 +28,19 @@ export class  ArticleViewComponent implements OnInit {
 
   // May be problematic JUNKJUNKJUNK123
   getArticle(id): void {
-   // console.log('in get Article');
-   // console.log(id);
+  //  console.log('in get Article');
+  //  console.log(id);
 
     this.articlesService.getArticle(id).subscribe(
       (response:any) => {
-     //   console.log(response);
-        this.article = response.article;
+        // console.log(response);
+        // console.log('Here is the post');
+        // console.log(response.post);
+        // console.log('here is the article');
+        // console.log(response.article);
+        // console.log('end test');
+
+        this.article = response.post;
       }
     );
   }   // end getArticle(id)

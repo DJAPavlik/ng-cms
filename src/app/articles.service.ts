@@ -11,14 +11,16 @@ const httpOptions = {
   {providedIn: 'root'
 })
 export class ArticlesService {
-  private url: string = 'http://localhost:3001/api/articles';
+  private url: string = 'http://localhost:3000/api/articles';
   
   constructor(private http: HttpClient) { }
+  
   getArticles(): Observable<Article[]> {
    // console.log('InArticlesService');
     return this.http.get<Article[]>(this.url);
   }
   getArticle(id: string): Observable<Article> {
+    //console.log('in service getArticle');
     return this.http.get<Article>(`${this.url}/${id}`);
   }
 

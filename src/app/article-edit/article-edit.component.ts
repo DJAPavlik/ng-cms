@@ -32,7 +32,10 @@ export class ArticleEditComponent implements OnInit {
   getArticle(id): void {
     this.articlesService.getArticle(id).subscribe(
       (response:any) => {
-        this.article = response.article
+        // console.log('in articles getArticle ');
+        // console.log(response);
+        // console.log('----');
+        this.article = response.post;
       }
     );
   }  // end getArticle(id)
@@ -44,7 +47,10 @@ export class ArticleEditComponent implements OnInit {
     }
 
     if(response.success===true){
-      this.router.navigate(['/articles/view/', response.article._id]);
+      // console.log('in ARTICLES edit');
+      // console.log(response);
+      // console.log('---');
+      this.router.navigate(['/articles/view/', response.post._id]);
     }
   } // end response(response)
 
